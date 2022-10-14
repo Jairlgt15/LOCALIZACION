@@ -20,6 +20,11 @@ public class Pais {
 	private String nacionalidad;
 	@Column(name = "ESTADONACIONALIDAD")
 	private boolean estadoNacionalidad;
+
+	public Pais() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Pais(Long idPais, Long codigoPais, String nacionalidad, boolean estadoNacionalidad) {
 		super();
 		this.idPais = idPais;

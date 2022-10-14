@@ -26,7 +26,7 @@ public class ProvinciaControlador {
 	public List<Provincia> listarProvincia() {
 		return provinciaSvc.listarProvincias();
 	}
-	@GetMapping("/provinciassActivos")
+	@GetMapping("/provinciasActivos")
 	public List<Provincia> listarProvinciasActivos() {
 		List<Provincia> result = null;
 		result = provinciaSvc.listarProvinciasActivos();
@@ -46,6 +46,10 @@ public class ProvinciaControlador {
 	@GetMapping("/provincias/like/{likeNombre}")
 	public List<Provincia> obtenerProvinciaLike(@PathVariable("likeNombre") String nombre) {
 		return provinciaSvc.getProvinciasLike(nombre);
+	}
+	@GetMapping("/provincias/Pais/{idPais}")
+	public List<Provincia> getProvinciasByPais(@PathVariable ("idPais") String id) {
+		return provinciaSvc.getProvinciasByIdPais(id);
 	}
 
 

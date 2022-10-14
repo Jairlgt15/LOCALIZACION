@@ -55,7 +55,7 @@ public class ParroquiaService {
 		 return listaLikeParroquia;
 		 
 	 }
-	 public List<Parroquia> getCantonesByIdProvincia(String idProvincia){
+	 public List<Parroquia> getParroquiasByIdCanton(String idProvincia){
 		 List<Parroquia> listaByCantones = new ArrayList<>();
 		 listaByCantones=repoParroquia.getParroquiasByCantones(idProvincia);
 		 return listaByCantones;

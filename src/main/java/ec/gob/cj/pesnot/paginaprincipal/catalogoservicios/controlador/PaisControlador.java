@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
 
-@RequestMapping("/pais")
+@RequestMapping("/Pais")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 
 public class PaisControlador {
 	@Autowired
 	PaisService paisSvc;
-	@GetMapping("/cantones")
+	@GetMapping("/paises")
 	public List<Pais> listarPaises() {
 		return paisSvc.listarPaises();
 	}

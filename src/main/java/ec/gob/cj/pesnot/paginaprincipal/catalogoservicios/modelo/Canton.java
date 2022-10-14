@@ -28,6 +28,10 @@ public class Canton {
 	private String nombreCanton;
 	@Column(name = "ESTADOCANTON")
 	private boolean estadoCanton;
+	
+	public Canton() {
+		super();
+	}
 	public Canton(Provincia idProvincia, String nombreCanton, boolean estadoCanton) {
 		super();
 		this.idProvincia = idProvincia;

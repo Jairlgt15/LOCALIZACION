@@ -17,4 +17,6 @@ public interface IPaisRepo  extends JpaRepository<Pais,Long> {
 	
 	@Query(nativeQuery = true,value="SELECT * FROM pais where ESTADONACIONALIDAD='true'")
 	List<Pais> getPaisesActivos();
+	
+
 }

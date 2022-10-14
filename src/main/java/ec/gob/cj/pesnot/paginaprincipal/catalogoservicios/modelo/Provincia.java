@@ -30,6 +30,11 @@ public class Provincia {
 	private String nombreProvincia;
 	@Column(name = "ESTADOPROVINCIA")
 	private boolean estadoProvincia;
+	
+	public Provincia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Provincia(Long idProvincia, Pais idPais, Long codigoProvincia, String nombreProvincia,
 			boolean estadoProvincia) {
 		super();

@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CantonService;
-@RequestMapping("/canton")
+@RequestMapping("/Canton")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class CantonControlador {
@@ -45,6 +46,10 @@ public class CantonControlador {
 	@GetMapping("/cantones/like/{likeNombre}")
 	public List<Canton> obtenerCantonesLike(@PathVariable("likeNombre") String nombre) {
 		return cantonSvc.getCantonesLike(nombre);
+	}
+	@GetMapping("/cantones/Provincia/{idCanton}")
+	public List<Canton> getCantonesByIdProvincia(@PathVariable ("idCanton") String id) {
+		return cantonSvc.getCantonesByIdProvincia(id);
 	}
 
 

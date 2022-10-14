@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParroquiaService;
 
 @RequestMapping("/Parroquia")
@@ -22,11 +23,11 @@ public class ParroquiaControlador {
 	
 	@Autowired
 	ParroquiaService parroquiaSvc;
-	@GetMapping("/cantones")
+	@GetMapping("/parroquias")
 	public List<Parroquia> listarCantones() {
 		return parroquiaSvc.listarParroquia();
 	}
-	@GetMapping("/cantonesActivos")
+	@GetMapping("/parroquiasActivos")
 	public List<Parroquia> listarCantonesActivos() {
 		List<Parroquia> result = null;
 		result = parroquiaSvc.listarParroquiasActivos();
@@ -47,6 +48,11 @@ public class ParroquiaControlador {
 	public List<Parroquia> obtenerParroquiasLike(@PathVariable("likeNombre") String nombre) {
 		return parroquiaSvc.getProvinciaLike(nombre);
 	}
+	@GetMapping("/parroquias/Canton/{idCanton}")
+	public List<Parroquia> getParroquiasByIdCanton(@PathVariable ("idCanton") String id) {
+		return parroquiaSvc.getParroquiasByIdCanton(id);
+	}
+	
 
 
 	@DeleteMapping("/parroquias/eliminar/{id}")

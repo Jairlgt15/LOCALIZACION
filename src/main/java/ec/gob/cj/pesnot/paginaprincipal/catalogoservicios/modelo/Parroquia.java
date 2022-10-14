@@ -28,6 +28,12 @@ public class Parroquia {
 	private String nombreParroquia;
 	@Column(name = "ESTADOPARROQUIA")
 	private boolean estadoParroquia;
+	
+	
+	public Parroquia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Parroquia(Canton idCanton, String nombreParroquia, boolean estadoParroquia) {
 		super();
 		this.idCanton = idCanton;
