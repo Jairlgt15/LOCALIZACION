@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParroquiaService;
 
 @RequestMapping("/Parroquia")
@@ -51,6 +50,10 @@ public class ParroquiaControlador {
 	@GetMapping("/parroquias/Canton/{idCanton}")
 	public List<Parroquia> getParroquiasByIdCanton(@PathVariable ("idCanton") String id) {
 		return parroquiaSvc.getParroquiasByIdCanton(id);
+	}
+	@GetMapping("/parroquias/nombreCanton/{nombreCanton}")
+	public List<Parroquia> getParroquiasByNombreCanton(@PathVariable ("nombreCanton") String nombreCanton) {
+		return parroquiaSvc.getParroquiasByNombreCanton(nombreCanton);
 	}
 	
 

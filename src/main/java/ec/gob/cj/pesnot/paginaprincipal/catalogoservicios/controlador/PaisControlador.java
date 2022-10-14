@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
 
 @RequestMapping("/Pais")

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 
 @Repository
 public interface IPaisRepo  extends JpaRepository<Pais,Long> {
@@ -20,6 +19,7 @@ public interface IPaisRepo  extends JpaRepository<Pais,Long> {
 	List<Pais> getPaisesActivos();
 	@Query(nativeQuery = true,value="SELECT * from pais where CODIGOPAIS = :codigoPais")
 	Pais getNombrePaisByCodigo(@Param("codigoPais") String codigoPais);
+	
 	
 
 }

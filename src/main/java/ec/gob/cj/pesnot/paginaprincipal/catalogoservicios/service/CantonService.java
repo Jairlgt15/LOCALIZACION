@@ -66,4 +66,5 @@ public class CantonService {
 	 public List<Canton> getCantonesByNombreProvincia(String nombreProvincia){
 		 return repoCanton.getCantonesByNombreProvincia(nombreProvincia);
 	 }
+
 }

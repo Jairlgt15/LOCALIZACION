@@ -63,5 +63,11 @@ public class ProvinciaService {
 	 public Provincia getNombreProvinciaByCodigo(String codigoProvincia) {
 		 return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
 	 }
+	 public List<Provincia> getProvinciasByCodigoPais(String codigoPais){
+		 return repoProvincia.getProvinciasByCodigoPais(codigoPais);
+	 }
+	 public List<Provincia> getProvinciasByNombrePais(String nombrePais){
+		 return repoProvincia.getProvinciasByNombrePais(nombrePais);
+	 }
 
 }

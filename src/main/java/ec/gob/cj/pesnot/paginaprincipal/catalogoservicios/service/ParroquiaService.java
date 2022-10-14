@@ -3,10 +3,8 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParroquiaRepo;
 import lombok.AllArgsConstructor;
@@ -59,5 +57,9 @@ public class ParroquiaService {
 		 List<Parroquia> listaByCantones = new ArrayList<>();
 		 listaByCantones=repoParroquia.getParroquiasByCantones(idProvincia);
 		 return listaByCantones;
-	 }	 
+	 }
+	 public List<Parroquia> getParroquiasByNombreCanton(String nombreCanton){
+		 return repoParroquia.getParroquiasByNombreCanton(nombreCanton);
+	 }
+	 
 }
