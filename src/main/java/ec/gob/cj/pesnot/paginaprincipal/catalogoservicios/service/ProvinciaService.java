@@ -59,6 +59,9 @@ public class ProvinciaService {
 		 listaByPais=repoProvincia.getProvinciasByPais(idPais);
 		 return listaByPais;
 		 
-	 }	 
+	 }
+	 public Provincia getNombreProvinciaByCodigo(String codigoProvincia) {
+		 return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
+	 }
 
 }

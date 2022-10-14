@@ -19,5 +19,7 @@ public interface IProvinciaRepo  extends JpaRepository<Provincia,Long> {
 	
 	@Query(nativeQuery = true,value="SELECT * FROM provincia where ESTADOPROVINCIA='true'")
 	List<Provincia> getProvinciasActivos();
+	@Query(nativeQuery = true,value="SELECT * from provincia where CODIGOPROVINCIA = :codigoProvincia")
+	Provincia getNombreProvinciaByCodigo(@Param("codigoProvincia") String codigoProvincia);
 
 }

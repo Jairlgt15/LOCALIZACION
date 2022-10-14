@@ -58,4 +58,7 @@ public class PaisService {
 		 return listaLikeNombrePais;
 		 
 	 }
+	 public Pais getNombrePaisByCodigo(String codigoPais) {
+		 return repoPais.getNombrePaisByCodigo(codigoPais);
+	 }
 }

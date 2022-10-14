@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
 
 @RequestMapping("/Pais")
@@ -47,6 +48,10 @@ public class PaisControlador {
 	public List<Pais> obtenerPaisesLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return paisSvc.getPaisesLikeNombre(nombre);
 	}
+	@GetMapping("/paises/buscarByCodigo/{codigoPais}")
+	 public Pais getNombreProvinciaByCodigo(@PathVariable("codigoPais") String codigo) {
+		 return paisSvc.getNombrePaisByCodigo(codigo);
+	 }
 
 
 	@DeleteMapping("/paises/eliminar/{id}")

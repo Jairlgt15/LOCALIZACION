@@ -51,6 +51,10 @@ public class ProvinciaControlador {
 	public List<Provincia> getProvinciasByPais(@PathVariable ("idPais") String id) {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}
+	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
+	 public Provincia getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") String codigo) {
+		 return provinciaSvc.getNombreProvinciaByCodigo(codigo);
+	 }
 
 
 	@DeleteMapping("/provincias/eliminar/{id}")
