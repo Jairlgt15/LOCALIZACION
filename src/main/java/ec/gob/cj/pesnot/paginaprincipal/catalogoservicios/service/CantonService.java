@@ -59,5 +59,11 @@ public class CantonService {
 		 List<Canton> listaByProvincia = new ArrayList<>();
 		 listaByProvincia=repoCanton.getCantonesByProvincia(idProvincia);
 		 return listaByProvincia;
-	 }	 
+	 }
+	 public List<Canton> getCantonesByCodigoProvincia(String codigoProvincia){
+		 return repoCanton.getCantonesByCodigoProvincia(codigoProvincia);
+	 }
+	 public List<Canton> getCantonesByNombreProvincia(String nombreProvincia){
+		 return repoCanton.getCantonesByNombreProvincia(nombreProvincia);
+	 }
 }

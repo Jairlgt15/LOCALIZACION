@@ -19,6 +19,12 @@ public interface ICantonRepo  extends JpaRepository<Canton,Long>{
 	
 	@Query(nativeQuery = true,value="SELECT * FROM canton where ESTADOCANTON='true'")
 	List<Canton> getCantonesActivos();
+	@Query(nativeQuery = true,value=
+			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM canton c join provincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.CODIGOPROVINCIA=:codigoProvincia")
+	List<Canton> getCantonesByCodigoProvincia(@Param("codigoProvincia") String codigoProvincia);
+	@Query(nativeQuery = true,value=
+			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM canton c join provincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.NOMBREPROVINCIA=:nombreProvincia")
+	List<Canton> getCantonesByNombreProvincia(@Param("nombreProvincia") String nombreProvincia);
 	
 
 }

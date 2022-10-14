@@ -51,6 +51,15 @@ public class CantonControlador {
 	public List<Canton> getCantonesByIdProvincia(@PathVariable ("idCanton") String id) {
 		return cantonSvc.getCantonesByIdProvincia(id);
 	}
+	@GetMapping("/cantones/codigoProvincia/{codigoProvincia}")
+	public List<Canton> getCantonesByCodigoProvincia(@PathVariable ("codigoProvincia") String codigoProvincia) {
+		return cantonSvc.getCantonesByCodigoProvincia(codigoProvincia);
+	}
+	@GetMapping("/cantones/nombreProvincia/{nombreProvincia}")
+	public List<Canton> getCantonesByNombreProvincia(@PathVariable ("nombreProvincia") String nombreProvincia) {
+		return cantonSvc.getCantonesByNombreProvincia(nombreProvincia);
+	}
+	
 
 
 	@DeleteMapping("/cantones/eliminar/{id}")
