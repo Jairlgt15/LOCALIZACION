@@ -48,7 +48,7 @@ public class ProvinciaControlador {
 		return provinciaSvc.getProvinciasLike(nombre);
 	}
 	@GetMapping("/provincias/Pais/{idPais}")
-	public List<Provincia> getProvinciasByPais(@PathVariable ("idPais") String id) {
+	public List<Provincia> getProvinciasByIdPais(@PathVariable ("idPais") String id) {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}
 	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
@@ -56,11 +56,11 @@ public class ProvinciaControlador {
 		 return provinciaSvc.getNombreProvinciaByCodigo(codigo);
 	 }
 	@GetMapping("/provincias/codigoPais/{codigoPais}")
-	public List<Provincia> getProvinciasByNombrePais(@PathVariable ("codigoPais") String codigoPais) {
+	public List<Provincia> getProvinciasByCodigoPais(@PathVariable ("codigoPais") String codigoPais) {
 		return provinciaSvc.getProvinciasByCodigoPais(codigoPais);
 	}
 	@GetMapping("/provincias/nombrePais/{nombrePais}")
-	public List<Provincia> getProvinciasByCodigoPais(@PathVariable ("nombrePais") String nombrePais) {
+	public List<Provincia> getProvinciasByNombrePais(@PathVariable ("nombrePais") String nombrePais) {
 		return provinciaSvc.getProvinciasByNombrePais(nombrePais);
 	}
 
