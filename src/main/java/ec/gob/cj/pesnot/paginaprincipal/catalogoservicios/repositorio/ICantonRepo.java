@@ -11,19 +11,19 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
 @Repository
 public interface ICantonRepo  extends JpaRepository<Canton,Long>{
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM canton p where p.IDPROVINCIA = :idProvincia and p.ESTADOCANTON=1;")
+	@Query(nativeQuery =true,value = "SELECT * FROM catalogoCanton p where p.IDPROVINCIA = :idProvincia and p.ESTADOCANTON=1;")
 	List<Canton> getCantonesByProvincia(@Param("idProvincia") String idProvincia);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM canton p WHERE p.NOMBRECANTON LIKE :nombre%")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoCanton p WHERE p.NOMBRECANTON LIKE :nombre%")
 	List<Canton> getCantonesLike(@Param("nombre") String nombre);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM canton where ESTADOCANTON='true'")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoCanton where ESTADOCANTON='true'")
 	List<Canton> getCantonesActivos();
 	@Query(nativeQuery = true,value=
-			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM canton c join provincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.CODIGOPROVINCIA=:codigoProvincia")
+			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM catalogoCanton c join catalogoProvincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.CODIGOPROVINCIA=:codigoProvincia")
 	List<Canton> getCantonesByCodigoProvincia(@Param("codigoProvincia") String codigoProvincia);
 	@Query(nativeQuery = true,value=
-			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM canton c join provincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.NOMBREPROVINCIA=:nombreProvincia")
+			"SELECT IDCANTON,ESTADOCANTON,NOMBRECANTON,c.IDPROVINCIA FROM catalogoCanton c join catalogoProvincia p on c.IDPROVINCIA=p.IDPROVINCIA where p.NOMBREPROVINCIA=:nombreProvincia")
 	List<Canton> getCantonesByNombreProvincia(@Param("nombreProvincia") String nombreProvincia);
 	
 

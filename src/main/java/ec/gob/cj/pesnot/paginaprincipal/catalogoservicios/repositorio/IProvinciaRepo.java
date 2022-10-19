@@ -11,22 +11,22 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 @Repository
 public interface IProvinciaRepo  extends JpaRepository<Provincia,Long> {
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM provincia p where p.IDPAIS = :idPais and p.ESTADOPROVINCIA=1;")
+	@Query(nativeQuery =true,value = "SELECT * FROM catalogoProvincia p where p.IDPAIS = :idPais and p.ESTADOPROVINCIA=1;")
 	List<Provincia> getProvinciasByPais(@Param("idPais") String idPais);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM provincia p WHERE p.NOMBREPROVINCIA LIKE :nombre%")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia p WHERE p.NOMBREPROVINCIA LIKE :nombre%")
 	List<Provincia> getProvinciasLikeNombre(@Param("nombre") String nombre);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM provincia where ESTADOPROVINCIA='true'")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia where ESTADOPROVINCIA='true'")
 	List<Provincia> getProvinciasActivos();
-	@Query(nativeQuery = true,value="SELECT * from provincia where CODIGOPROVINCIA = :codigoProvincia")
+	@Query(nativeQuery = true,value="SELECT * from catalogoProvincia where CODIGOPROVINCIA = :codigoProvincia")
 	Provincia getNombreProvinciaByCodigo(@Param("codigoProvincia") String codigoProvincia);
 	
 	@Query(nativeQuery = true,value=
-			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM pais p join provincia v on v.IDPAIS=p.IDPAIS where p.CODIGOPAIS=:codigoPais")
+			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM catalogoPais p join catalogoProvincia v on v.IDPAIS=p.IDPAIS where p.CODIGOPAIS=:codigoPais")
 	List<Provincia> getProvinciasByCodigoPais(@Param("codigoPais") String codigoPais);
 	@Query(nativeQuery = true,value=
-			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM pais p join provincia v on v.IDPAIS=p.IDPAIS where p.NACIONALIDAD=:nombrePais")
+			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM catalogoPais p join catalogoProvincia v on v.IDPAIS=p.IDPAIS where p.NACIONALIDAD=:nombrePais")
 	List<Provincia> getProvinciasByNombrePais(@Param("nombrePais") String nombrePais);
 
 }
