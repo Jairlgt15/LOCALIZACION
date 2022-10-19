@@ -22,5 +22,4 @@ public interface IParroquiaRepo  extends JpaRepository<Parroquia,Long> {
 	@Query(nativeQuery = true,value=
 			"SELECT p.IDPARROQUIA, p.ESTADOPARROQUIA, p.NOMBREPARROQUIA, p.IDCANTON FROM catalogoParroquia p join catalogoCanton c on c.IDCANTON=p.IDCANTON where c.NOMBRECANTON=:nombreCanton")
 	List<Parroquia> getParroquiasByNombreCanton(@Param("nombreCanton") String nombreCanton);
-
 }
