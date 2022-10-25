@@ -116,10 +116,13 @@ public class PaisTests {
 		Pais paisRecuperado;
 		Pais paisGuardadoR;
 		paisGuardadoR=repo.save(paisGuardado);
+		System.out.println(paisGuardadoR);
 		String codigo=numero+"";
-		control.getNombreProvinciaByCodigo(codigo);
-		service.getNombrePaisByCodigo("54");
-		paisRecuperado=repo.getNombrePaisByCodigo("54");
+
+		control.getNombreProvinciaByCodigo(paisGuardadoR.getCodigoPais());
+		service.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
+		paisRecuperado=repo.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
+
 		assertNotNull(paisRecuperado);
 	}
 	
