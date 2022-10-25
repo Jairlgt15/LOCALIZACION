@@ -36,10 +36,6 @@ public class PaisService {
 		return pais;
 	}
 
-	public Canton actualizar(Canton catalagoAActualizar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	 public boolean eliminar(Long idClienteAEliminar) {
         try{
