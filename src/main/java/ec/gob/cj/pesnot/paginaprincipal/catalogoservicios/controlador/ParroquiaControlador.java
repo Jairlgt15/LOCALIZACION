@@ -23,11 +23,11 @@ public class ParroquiaControlador {
 	@Autowired
 	ParroquiaService parroquiaSvc;
 	@GetMapping("/parroquias")
-	public List<Parroquia> listarCantones() {
+	public List<Parroquia> listarParroquia() {
 		return parroquiaSvc.listarParroquia();
 	}
 	@GetMapping("/parroquiasActivos")
-	public List<Parroquia> listarCantonesActivos() {
+	public List<Parroquia> listarParroquiasActivos() {
 		List<Parroquia> result = null;
 		result = parroquiaSvc.listarParroquiasActivos();
 		return result;
@@ -45,7 +45,7 @@ public class ParroquiaControlador {
 	}
 	@GetMapping("/parroquias/like/{likeNombre}")
 	public List<Parroquia> obtenerParroquiasLike(@PathVariable("likeNombre") String nombre) {
-		return parroquiaSvc.getProvinciaLike(nombre);
+		return parroquiaSvc.getParroquiasLike(nombre);
 	}
 	@GetMapping("/parroquias/Canton/{idCanton}")
 	public List<Parroquia> getParroquiasByIdCanton(@PathVariable ("idCanton") String id) {

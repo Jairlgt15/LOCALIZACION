@@ -71,11 +71,12 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que previamente se guardo")
 	void guardarProvincia() {
-        Provincia provincia= new Provincia();
-        Pais pais= repoPais.getById((long)1);
-        provincia.setIdPais(pais);
-        provincia.setNombreProvincia("payscan");
-        Provincia actual = repo.save(provincia);
+		Pais paisGuardado=new Pais(87l,"EEUU", true);
+		repoPais.save(paisGuardado);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+        Provincia actual = repo.save(provinciaGuardado);
+		control.guardarProvincia(provinciaGuardado);
+		service.guardarProvincia(provinciaGuardado);
         assertThat(actual).isNotNull();
         
 	}

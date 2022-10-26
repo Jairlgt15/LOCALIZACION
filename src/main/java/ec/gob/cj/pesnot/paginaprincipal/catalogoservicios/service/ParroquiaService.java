@@ -31,10 +31,6 @@ public class ParroquiaService {
 		return parroquia;
 	}
 
-	public Parroquia actualizar(Parroquia catalagoAActualizar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	 public boolean eliminar(Long idClienteAEliminar) {
         try{
@@ -47,7 +43,7 @@ public class ParroquiaService {
 	public List<Parroquia> listarParroquiasActivos(){
 		return repoParroquia.getParroquiasActivos();
 	}
-	 public List<Parroquia> getProvinciaLike(String nombreCanton){
+	 public List<Parroquia> getParroquiasLike(String nombreCanton){
 		 List<Parroquia> listaLikeParroquia = new ArrayList<>();
 		 listaLikeParroquia=repoParroquia.getParroquiasLike(nombreCanton);
 		 return listaLikeParroquia;
