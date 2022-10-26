@@ -52,11 +52,11 @@ public class ProvinciaControlador {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}
 	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
-	 public Provincia getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") String codigo) {
+	 public Provincia getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") Long codigo) {
 		 return provinciaSvc.getNombreProvinciaByCodigo(codigo);
 	 }
 	@GetMapping("/provincias/codigoPais/{codigoPais}")
-	public List<Provincia> getProvinciasByCodigoPais(@PathVariable ("codigoPais") String codigoPais) {
+	public List<Provincia> getProvinciasByCodigoPais(@PathVariable ("codigoPais") Long codigoPais) {
 		return provinciaSvc.getProvinciasByCodigoPais(codigoPais);
 	}
 	@GetMapping("/provincias/nombrePais/{nombrePais}")

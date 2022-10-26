@@ -1,5 +1,4 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
-
 import org.junit.jupiter.api.*;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -7,13 +6,10 @@ import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador.PaisControlador;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IPaisRepo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -116,9 +112,6 @@ public class PaisTests {
 		Pais paisRecuperado;
 		Pais paisGuardadoR;
 		paisGuardadoR=repo.save(paisGuardado);
-		System.out.println(paisGuardadoR);
-		String codigo=numero+"";
-
 		control.getNombreProvinciaByCodigo(paisGuardadoR.getCodigoPais());
 		service.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
 		paisRecuperado=repo.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
@@ -150,6 +143,9 @@ public class PaisTests {
 
 
 	}
+
+	
+	
 	
 	
 

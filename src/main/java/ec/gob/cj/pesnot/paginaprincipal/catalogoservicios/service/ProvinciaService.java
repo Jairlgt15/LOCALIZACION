@@ -24,11 +24,10 @@ public class ProvinciaService {
 		return repoProvincia.save(provinciaEntrante);
 	}
 
-
 	public Optional<Provincia> provinciaById(Long idEntrante) {
-		//El opcional me maneja si es que no encuentra nada
-		Optional <Provincia> provincia = repoProvincia.findById(idEntrante);
-		//.orElseThrow(()-> new CatalogoNotFoundException(idEntrante.toString()));
+		// El opcional me maneja si es que no encuentra nada
+		Optional<Provincia> provincia = repoProvincia.findById(idEntrante);
+		// .orElseThrow(()-> new CatalogoNotFoundException(idEntrante.toString()));
 		return provincia;
 	}
 
@@ -37,37 +36,43 @@ public class ProvinciaService {
 		return null;
 	}
 
-	 public boolean eliminar(Long idClienteAEliminar) {
-        try{
-          repoProvincia.deleteById(idClienteAEliminar);
-            return true;
-        }catch(Exception err){
-            return false;
-        }
-    }
-	public List<Provincia> listarProvinciasActivos(){
+	public boolean eliminar(Long idClienteAEliminar) {
+		try {
+			repoProvincia.deleteById(idClienteAEliminar);
+			return true;
+		} catch (Exception err) {
+			return false;
+		}
+	}
+
+	public List<Provincia> listarProvinciasActivos() {
 		return repoProvincia.getProvinciasActivos();
 	}
-	 public List<Provincia> getProvinciasLike(String nombrePais){
-		 List<Provincia> listaLikeProvincia = new ArrayList<>();
-		 listaLikeProvincia=repoProvincia.getProvinciasLikeNombre(nombrePais);
-		 return listaLikeProvincia;
-		 
-	 }
-	 public List<Provincia> getProvinciasByIdPais(String idPais){
-		 List<Provincia> listaByPais = new ArrayList<>();
-		 listaByPais=repoProvincia.getProvinciasByPais(idPais);
-		 return listaByPais;
-		 
-	 }
-	 public Provincia getNombreProvinciaByCodigo(String codigoProvincia) {
-		 return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
-	 }
-	 public List<Provincia> getProvinciasByCodigoPais(String codigoPais){
-		 return repoProvincia.getProvinciasByCodigoPais(codigoPais);
-	 }
-	 public List<Provincia> getProvinciasByNombrePais(String nombrePais){
-		 return repoProvincia.getProvinciasByNombrePais(nombrePais);
-	 }
+
+	public List<Provincia> getProvinciasLike(String nombrePais) {
+		List<Provincia> listaLikeProvincia = new ArrayList<>();
+		listaLikeProvincia = repoProvincia.getProvinciasLikeNombre(nombrePais);
+		return listaLikeProvincia;
+
+	}
+
+	public List<Provincia> getProvinciasByIdPais(String idPais) {
+		List<Provincia> listaByPais = new ArrayList<>();
+		listaByPais = repoProvincia.getProvinciasByPais(idPais);
+		return listaByPais;
+
+	}
+
+	public Provincia getNombreProvinciaByCodigo(Long codigoProvincia) {
+		return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
+	}
+
+	public List<Provincia> getProvinciasByCodigoPais(Long codigoPais) {
+		return repoProvincia.getProvinciasByCodigoPais(codigoPais);
+	}
+
+	public List<Provincia> getProvinciasByNombrePais(String nombrePais) {
+		return repoProvincia.getProvinciasByNombrePais(nombrePais);
+	}
 
 }
