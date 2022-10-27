@@ -31,19 +31,8 @@ public class ProvinciaService {
 		return provincia;
 	}
 
-	public Provincia actualizar(Provincia provinciaAActualizar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public boolean eliminar(Long idClienteAEliminar) {
-		try {
-			repoProvincia.deleteById(idClienteAEliminar);
-			return true;
-		} catch (Exception err) {
-			return false;
-		}
-	}
+
 
 	public List<Provincia> listarProvinciasActivos() {
 		return repoProvincia.getProvinciasActivos();
@@ -55,6 +44,8 @@ public class ProvinciaService {
 		return listaLikeProvincia;
 
 	}
+	
+	//TODO
 
 	public List<Provincia> getProvinciasByIdPais(String idPais) {
 		List<Provincia> listaByPais = new ArrayList<>();
@@ -63,7 +54,7 @@ public class ProvinciaService {
 
 	}
 
-	public Provincia getNombreProvinciaByCodigo(Long codigoProvincia) {
+	public List<Provincia> getNombreProvinciaByCodigo(Long codigoProvincia) {
 		return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
 	}
 

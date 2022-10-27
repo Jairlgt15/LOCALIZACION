@@ -34,7 +34,7 @@ public class CantonControlador {
 	@PostMapping("/save")
 	public Canton guardarCanton(@RequestBody Canton objCanton) {
 
-		return cantonSvc.guardarCatalogo(objCanton);
+		return cantonSvc.guardarCanton(objCanton);
 	}
 
 	@GetMapping("/cantones/{id}")
@@ -58,21 +58,6 @@ public class CantonControlador {
 		return cantonSvc.getCantonesByNombreProvincia(nombreProvincia);
 	}
 
-
-	
-
-
-	@DeleteMapping("/cantones/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") Long id){
-	        boolean ok = cantonSvc.eliminar(id);
-	        if (ok){
-	            return "Se eliminó el usuario con id " + id;
-	        }else{
-	            return "No pudo eliminar el usuario con id" + id;
-	        }
-	
-
-}
 	
 
 }

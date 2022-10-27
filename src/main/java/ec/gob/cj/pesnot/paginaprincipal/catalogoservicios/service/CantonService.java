@@ -21,7 +21,7 @@ public class CantonService {
 		return repoCanton.findAll();
 	}
 
-	public Canton guardarCatalogo(Canton catalogoEntrante) {
+	public Canton guardarCanton(Canton catalogoEntrante) {
 		return repoCanton.save(catalogoEntrante);
 	}
 
@@ -33,19 +33,7 @@ public class CantonService {
 		return catalogo;
 	}
 
-	public Canton actualizar(Canton catalagoAActualizar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	 public boolean eliminar(Long idClienteAEliminar) {
-        try{
-          repoCanton.deleteById(idClienteAEliminar);
-            return true;
-        }catch(Exception err){
-            return false;
-        }
-    }
 	public List<Canton> listarCantonesActivos(){
 		return repoCanton.getCantonesActivos();
 	}

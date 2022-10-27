@@ -52,7 +52,7 @@ public class ProvinciaControlador {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}
 	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
-	 public Provincia getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") Long codigo) {
+	 public List<Provincia> getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") Long codigo) {
 		 return provinciaSvc.getNombreProvinciaByCodigo(codigo);
 	 }
 	@GetMapping("/provincias/codigoPais/{codigoPais}")
@@ -65,14 +65,5 @@ public class ProvinciaControlador {
 	}
 
 
-	@DeleteMapping("/provincias/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") Long id){
-	        boolean ok = provinciaSvc.eliminar(id);
-	        if (ok){
-	            return "Se eliminó el usuario con id " + id;
-	        }else{
-	            return "No pudo eliminar el usuario con id" + id;
-	        }
-}
 
 }

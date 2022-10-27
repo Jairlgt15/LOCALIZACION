@@ -58,16 +58,5 @@ public class ParroquiaControlador {
 	
 
 
-	@DeleteMapping("/parroquias/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") Long id){
-	        boolean ok = parroquiaSvc.eliminar(id);
-	        if (ok){
-	            return "Se eliminó el usuario con id " + id;
-	        }else{
-	            return "No pudo eliminar el usuario con id" + id;
-	        }
-	
-
-}
 	
 }

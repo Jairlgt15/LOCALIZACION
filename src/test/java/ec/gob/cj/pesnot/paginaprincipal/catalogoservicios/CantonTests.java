@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
@@ -19,7 +18,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador.ParroquiaC
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador.ProvinciaControlador;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICantonRepo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IPaisRepo;
@@ -31,8 +30,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParroquiaServi
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ProvinciaService;
 
 @SpringBootTest
-public class ParroquiaTests {
-
+public class CantonTests {
 	@Autowired
 	@Spy
 	private ProvinciaService serviceProvincia = Mockito.mock(ProvinciaService.class);
@@ -44,22 +42,13 @@ public class ParroquiaTests {
 	private IProvinciaRepo repoProvincia = Mockito.mock(IProvinciaRepo.class);
 	@Autowired
 	@Spy
-	private ICantonRepo repoCanton = Mockito.mock(ICantonRepo.class);
+	private ICantonRepo repo = Mockito.mock(ICantonRepo.class);
 	@Autowired
 	@Spy
-	private CantonService serviceCanton = Mockito.mock(CantonService.class);
+	private CantonService service = Mockito.mock(CantonService.class);
 	@Autowired
 	@Spy
-	private CantonControlador controlCanton = Mockito.mock(CantonControlador.class);
-	@Autowired
-	@Spy
-	private ParroquiaService service = Mockito.mock(ParroquiaService.class);
-	@Autowired
-	@Spy
-	private ParroquiaControlador control = Mockito.mock(ParroquiaControlador.class);
-	@Autowired
-	@Spy
-	private IParroquiaRepo repo = Mockito.mock(IParroquiaRepo.class);
+	private CantonControlador control = Mockito.mock(CantonControlador.class);
 	@Autowired
 	@Spy
 	private IPaisRepo repoPais = Mockito.mock(IPaisRepo.class);
@@ -72,42 +61,36 @@ public class ParroquiaTests {
 
 	@Test
 	@DisplayName("La prueba pasa cuando se liste los datos de pais.")
-	void listarParroquia() {
-		List<Parroquia> listaProvincia;
-		control.listarParroquia();
-		service.listarParroquia();
-		listaProvincia = repo.findAll();
-		assertNotNull(listaProvincia);
+	void listarCanton() {
+		List<Canton> listaCanton;
+		control.listarCantones();
+		service.listarCanton();
+		listaCanton = repo.findAll();
+		assertNotNull(listaCanton);
 	}
 
 	@Test
 	@DisplayName("La prueba pasa cuando se liste los datos de pais que esten activos")
-	void listarParroquiasActivos() {
-		List<Parroquia> listarParroquiasActivos;
-		control.listarParroquiasActivos();
-		service.listarParroquiasActivos();
-		listarParroquiasActivos = repo.getParroquiasActivos();
-		assertNotNull(listarParroquiasActivos);
+	void listarCantonesActivos() {
+		List<Canton> listarsActivos;
+		control.listarCantonesActivos();
+		service.listarCantonesActivos();
+		listarsActivos = repo.getCantonesActivos();
+		assertNotNull(listarsActivos);
 	}
 
 	@Test
 
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que previamente se guardo")
-	void guardarParroquia() {
+	void guardarCanton() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia actual = repo.save(parroquiaGuardado);
-
-		control.guardarParroquia(parroquiaGuardado);
-		service.guardarParroquia(parroquiaGuardado);
-		assertNotNull(actual);
+		Canton actualCanton = repo.save(cantonGuardado);
+		service.guardarCanton(cantonGuardado);
+		control.guardarCanton(cantonGuardado);
 		assertNotNull(actualCanton);
 		assertNotNull(actualProvincia);
 
@@ -116,112 +99,112 @@ public class ParroquiaTests {
 	@Test
 
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el id")
-	void getProvinciaById() {
+	void getCantonById() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		serviceCanton.guardarCanton(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia actual = repo.save(parroquiaGuardado);
-		control.obtenerParroquiaPorId(actual.getIdParroquia());
-		service.parroquiaById(actual.getIdParroquia());
-		Optional<Parroquia> parroquiaRecuperado = repo.findById(actual.getIdParroquia());
-		assertNotNull(parroquiaRecuperado);
+		Canton actualCanton = repo.save(cantonGuardado);
+		control.obtenerCantonPorId(actualCanton.getIdCanton());
+		service.cantonById(actualCanton.getIdCanton());
+		Optional<Canton> cantonRecuperado = repo.findById(actualCanton.getIdCanton());
+		assertNotNull(cantonRecuperado);
 	}
 
 	@Test
 
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el nombre")
-	void getParroquiaByNombre() {
+	void getCantonByNombre() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		serviceCanton.guardarCanton(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia actual = repo.save(parroquiaGuardado);
-		List<Parroquia> listaPaises;
-		control.obtenerParroquiasLike(parroquiaGuardado.getNombreParroquia());
-		service.getParroquiasLike(parroquiaGuardado.getNombreParroquia());
-		listaPaises = repo.getParroquiasLike(parroquiaGuardado.getNombreParroquia());
+		Canton actualCanton = repo.save(cantonGuardado);
+		service.guardarCanton(cantonGuardado);
+		control.guardarCanton(cantonGuardado);
+		List<Canton> listaPaises;
+		control.obtenerCantonesLike(actualCanton.getNombreCanton());
+		service.getCantonesLike(actualCanton.getNombreCanton());
+		listaPaises = repo.getCantonesLike(actualCanton.getNombreCanton());
 		assertNotNull(listaPaises);
 	}
+
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el id Pais")
-	void getParroquiaByIdCanton() {
+	void getCantonByIdProvincia() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		serviceCanton.guardarCanton(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia actual = repo.save(parroquiaGuardado);
-		List<Parroquia> listaPaises;
-		listaPaises = repo.getParroquiasByIdCanton(actualCanton.getIdCanton().toString());
+		Canton actualCanton = repo.save(cantonGuardado);
+		List<Canton> listaPaises;
+		listaPaises = repo.getCantonesByProvincia(actualProvincia.getIdProvincia().toString());
 
 		assertNotNull(listaPaises);
-		service.getParroquiasByIdCanton(actualCanton.getIdCanton().toString());
-		control.getParroquiasByIdCanton(actualCanton.getIdCanton().toString());
+		service.getCantonesByIdProvincia(actualProvincia.getIdProvincia().toString());
+		control.getCantonesByIdProvincia(actualProvincia.getIdProvincia().toString());
 
 	}
+
 	@Test
-	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo de Pais")
-	void getParroquiaByNombreCanton() {
+	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo Provincia")
+	void getCantonByCodigoProvincia() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		serviceCanton.guardarCanton(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia actual = repo.save(parroquiaGuardado);
-		List<Parroquia> listaPaises;
-		listaPaises = repo.getParroquiasByNombreCanton(actualCanton.getNombreCanton());
+		Canton actualCanton = repo.save(cantonGuardado);
+		List<Canton> listaPaises;
+		listaPaises = repo.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
 
 		assertNotNull(listaPaises);
-		service.getParroquiasByNombreCanton(actualCanton.getIdCanton().toString());
-		control.getParroquiasByNombreCanton(actualCanton.getIdCanton().toString());
-		
+		service.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
+		control.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
+
 	}
-	
-	
+
+	@Test
+
+	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo de Pais")
+	void getCantonByNombreProvincia() {
+		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		repoPais.save(paisGuardado);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
+		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
+		Canton actualCanton = repo.save(cantonGuardado);
+
+		List<Canton> listaPaises;
+		listaPaises = repo.getCantonesByNombreProvincia(actualProvincia.getNombreProvincia());
+
+		assertNotNull(listaPaises);
+		service.getCantonesByNombreProvincia(actualProvincia.getNombreProvincia());
+		control.getCantonesByNombreProvincia(actualProvincia.getNombreProvincia());
+
+	}
 
 	@Test
 
 	@DisplayName("La prueba pasa cuando se instancie todo lo relacionado al modelo")
-	void modeloParroquia() {
+	void modeloCanton() {
 		Pais paisGuardado = new Pais(87l, "EEUU", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
-		Canton actualCanton = repoCanton.save(cantonGuardado);
-		serviceCanton.guardarCanton(cantonGuardado);
-		controlCanton.guardarCanton(cantonGuardado);
-		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
-		Parroquia parroquiaGuardado1 = new Parroquia(20l,cantonGuardado, "jair", true);
-		parroquiaGuardado.setEstadoParroquia(false);
-		parroquiaGuardado.setIdCanton(actualCanton);
-		parroquiaGuardado.setIdParroquia(20l);
-		parroquiaGuardado.setNombreParroquia(null);
-		assertNotNull(parroquiaGuardado.getIdParroquia());
-		parroquiaGuardado.getNombreParroquia();
-		parroquiaGuardado.getIdCanton();
-		parroquiaGuardado.toString();
-		parroquiaGuardado.isEstadoParroquia();
+		Canton cantonGuardado1 = new Canton(1l,provinciaGuardado, "Chileno", true);
+		Canton actualCanton = repo.save(cantonGuardado);
+		cantonGuardado1.setIdCanton(null);
+		cantonGuardado1.setEstadoCanton(false);
+		cantonGuardado1.setIdProvincia(actualProvincia);
+		cantonGuardado1.setNombreCanton(null);
+		cantonGuardado1.getIdProvincia();
+		cantonGuardado1.isEstadoCanton();
+		
 
 	}
-
 }

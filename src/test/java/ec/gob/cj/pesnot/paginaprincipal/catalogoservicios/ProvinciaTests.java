@@ -116,30 +116,62 @@ public class ProvinciaTests {
 		Pais paisGuardado=new Pais(86l,"China", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
-		Provincia provinciaRecuperado;
-		Provincia provinciaGuardadoR;
-		provinciaGuardadoR=repo.save(provinciaGuardado);
-		provinciaRecuperado=repo.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
+		List <Provincia> listaPaises;
+		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
+		listaPaises=repo.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
 
-		assertNotNull(provinciaRecuperado);
+		assertNotNull(listaPaises);
 		service.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
 		control.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
 
 	}
 	
 	@Test
-	@DisplayName("La prueba pasa cuando se elimine el provincia que se busca mediante el codigo")
-	void eliminarProvinciaById() {
-		Pais paisGuardado=new Pais(20l,"Egipto", true);
+	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el id Pais")
+	void getProvinciaByIdPais() {
+		Pais paisGuardado=new Pais(86l,"China", true);
 		repoPais.save(paisGuardado);
 		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
-		repo.save(provinciaGuardado);
-		service.eliminar(provinciaGuardado.getIdProvincia());
-		control.eliminarPorId(provinciaGuardado.getIdProvincia());
-		control.eliminarPorId(1l);
+		List <Provincia> listaPaises;
+		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
+		listaPaises=repo.getProvinciasByPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
 
+		assertNotNull(listaPaises);
+		service.getProvinciasByIdPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
+		control.getProvinciasByIdPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
 
 	}
+	@Test
+	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo de Pais")
+	void getProvinciaByCodigoPais() {
+		Pais paisGuardado=new Pais(86l,"China", true);
+		repoPais.save(paisGuardado);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		List <Provincia> listaPaises;
+		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
+		listaPaises=repo.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
+
+		assertNotNull(listaPaises);
+		service.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
+		control.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
+
+	}
+	@Test
+	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el nombre de Pais")
+	void getProvinciaByNombrePais() {
+		Pais paisGuardado=new Pais(86l,"China", true);
+		repoPais.save(paisGuardado);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		List <Provincia> listaPaises;
+		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
+		listaPaises=repo.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
+
+		assertNotNull(listaPaises);
+		service.getProvinciasByNombrePais(paisGuardado.getNacionalidad());
+		control.getProvinciasByNombrePais(paisGuardado.getNacionalidad());
+	}
+
+
 	@Test
 	@DisplayName("La prueba pasa cuando se instancie todo lo relacionado al modelo")
 	void modeloProvincia() {

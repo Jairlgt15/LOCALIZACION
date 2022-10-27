@@ -32,14 +32,7 @@ public class ParroquiaService {
 	}
 
 
-	 public boolean eliminar(Long idClienteAEliminar) {
-        try{
-          repoParroquia.deleteById(idClienteAEliminar);
-            return true;
-        }catch(Exception err){
-            return false;
-        }
-    }
+	 
 	public List<Parroquia> listarParroquiasActivos(){
 		return repoParroquia.getParroquiasActivos();
 	}
@@ -51,7 +44,7 @@ public class ParroquiaService {
 	 }
 	 public List<Parroquia> getParroquiasByIdCanton(String idProvincia){
 		 List<Parroquia> listaByCantones = new ArrayList<>();
-		 listaByCantones=repoParroquia.getParroquiasByCantones(idProvincia);
+		 listaByCantones=repoParroquia.getParroquiasByIdCanton(idProvincia);
 		 return listaByCantones;
 	 }
 	 public List<Parroquia> getParroquiasByNombreCanton(String nombreCanton){
