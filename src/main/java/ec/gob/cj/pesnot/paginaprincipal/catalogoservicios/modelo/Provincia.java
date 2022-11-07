@@ -20,9 +20,9 @@ public class Provincia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDPROVINCIA")
 	private Long idProvincia;
-	@ManyToOne(targetEntity = Pais.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Pais.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDPAIS",nullable=false)
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.READ_WRITE)
 	private Pais idPais;
     @Column(name = "CODIGOPROVINCIA")
 	private Long codigoProvincia;
@@ -86,5 +86,6 @@ public class Provincia {
 		return "Provincia [idProvincia=" + idProvincia + ", idPais=" + idPais + ", codigoProvincia=" + codigoProvincia
 				+ ", nombreProvincia=" + nombreProvincia + ", estadoProvincia=" + estadoProvincia + "]";
 	}
+
 	
 }

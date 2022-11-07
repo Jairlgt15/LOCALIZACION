@@ -20,9 +20,9 @@ public class Canton {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDCANTON")
 	private Long idCanton;
-	@ManyToOne(targetEntity = Provincia.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Provincia.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDPROVINCIA",nullable=false)
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.READ_WRITE)
 	private Provincia idProvincia;
 	@Column(name = "NOMBRECANTON")
 	private String nombreCanton;

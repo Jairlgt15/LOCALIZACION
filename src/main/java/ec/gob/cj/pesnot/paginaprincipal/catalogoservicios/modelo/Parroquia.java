@@ -20,9 +20,9 @@ public class Parroquia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDPARROQUIA")
 	private Long idParroquia;
-	@ManyToOne(targetEntity = Canton.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Canton.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDCANTON",nullable=false)
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.READ_WRITE)
 	private Canton idCanton;
 	@Column(name = "NOMBREPARROQUIA")
 	private String nombreParroquia;
