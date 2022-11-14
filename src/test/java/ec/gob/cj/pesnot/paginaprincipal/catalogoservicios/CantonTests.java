@@ -125,7 +125,7 @@ public class CantonTests {
 		service.guardarCanton(cantonGuardado);
 		control.guardarCanton(cantonGuardado);
 		List<Canton> listaPaises;
-		control.obtenerCantonesLike(actualCanton.getNombreCanton());
+		control.obtenerCantonesLikeNombre(actualCanton.getNombreCanton());
 		service.getCantonesLike(actualCanton.getNombreCanton());
 		listaPaises = repo.getCantonesLike(actualCanton.getNombreCanton());
 		assertNotNull(listaPaises);
@@ -145,7 +145,7 @@ public class CantonTests {
 
 		assertNotNull(listaPaises);
 		service.getCantonesByIdProvincia(actualProvincia.getIdProvincia().toString());
-		control.getCantonesByIdProvincia(actualProvincia.getIdProvincia().toString());
+		control.obtenerCantonesPorIdProvincia(actualProvincia.getIdProvincia().toString());
 
 	}
 
@@ -163,7 +163,7 @@ public class CantonTests {
 
 		assertNotNull(listaPaises);
 		service.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
-		control.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
+		control.obtenerCantonesPorCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
 
 	}
 
@@ -183,7 +183,7 @@ public class CantonTests {
 
 		assertNotNull(listaPaises);
 		service.getCantonesByNombreProvincia(actualProvincia.getNombreProvincia());
-		control.getCantonesByNombreProvincia(actualProvincia.getNombreProvincia());
+		control.obtenerCantonesPorNombreProvincia(actualProvincia.getNombreProvincia());
 
 	}
 

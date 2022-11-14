@@ -148,7 +148,7 @@ public class ParroquiaTests {
 		Parroquia parroquiaGuardado = new Parroquia(cantonGuardado, "jair", true);
 		Parroquia actual = repo.save(parroquiaGuardado);
 		List<Parroquia> listaPaises;
-		control.obtenerParroquiasLike(parroquiaGuardado.getNombreParroquia());
+		control.obtenerParroquiasLikeNombre(parroquiaGuardado.getNombreParroquia());
 		service.getParroquiasLike(parroquiaGuardado.getNombreParroquia());
 		listaPaises = repo.getParroquiasLike(parroquiaGuardado.getNombreParroquia());
 		assertNotNull(listaPaises);
@@ -171,7 +171,7 @@ public class ParroquiaTests {
 
 		assertNotNull(listaPaises);
 		service.getParroquiasByIdCanton(actualCanton.getIdCanton().toString());
-		control.getParroquiasByIdCanton(actualCanton.getIdCanton().toString());
+		control.obtenerParroquiasPorIdCanton(actualCanton.getIdCanton().toString());
 
 	}
 	@Test
@@ -192,7 +192,7 @@ public class ParroquiaTests {
 
 		assertNotNull(listaPaises);
 		service.getParroquiasByNombreCanton(actualCanton.getIdCanton().toString());
-		control.getParroquiasByNombreCanton(actualCanton.getIdCanton().toString());
+		control.obtenerParroquiasPorNombreCanton(actualCanton.getIdCanton().toString());
 		
 	}
 	

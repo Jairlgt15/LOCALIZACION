@@ -112,7 +112,7 @@ public class PaisTests {
 		Pais paisRecuperado;
 		Pais paisGuardadoR;
 		paisGuardadoR=repo.save(paisGuardado);
-		control.getNombreProvinciaByCodigo(paisGuardadoR.getCodigoPais());
+		control.obtenerNombreProvinciaPorCodigo(paisGuardadoR.getCodigoPais());
 		service.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
 		paisRecuperado=repo.getNombrePaisByCodigo(paisGuardadoR.getCodigoPais());
 

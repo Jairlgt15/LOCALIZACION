@@ -41,19 +41,19 @@ public class CantonControlador {
 		return cantonSvc.cantonById(id);
 	}
 	@GetMapping("/cantones/like/{likeNombre}")
-	public List<Canton> obtenerCantonesLike(@PathVariable("likeNombre") String nombre) {
+	public List<Canton> obtenerCantonesLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return cantonSvc.getCantonesLike(nombre);
 	}
 	@GetMapping("/cantones/Provincia/{idProvincia}")
-	public List<Canton> getCantonesByIdProvincia(@PathVariable ("idProvincia") String id) {
+	public List<Canton> obtenerCantonesPorIdProvincia(@PathVariable ("idProvincia") String id) {
 		return cantonSvc.getCantonesByIdProvincia(id);
 	}
 	@GetMapping("/cantones/codigoProvincia/{codigoProvincia}")
-	public List<Canton> getCantonesByCodigoProvincia(@PathVariable ("codigoProvincia") String codigoProvincia) {
+	public List<Canton> obtenerCantonesPorCodigoProvincia(@PathVariable ("codigoProvincia") String codigoProvincia) {
 		return cantonSvc.getCantonesByCodigoProvincia(codigoProvincia);
 	}
 	@GetMapping("/cantones/nombreProvincia/{nombreProvincia}")
-	public List<Canton> getCantonesByNombreProvincia(@PathVariable ("nombreProvincia") String nombreProvincia) {
+	public List<Canton> obtenerCantonesPorNombreProvincia(@PathVariable ("nombreProvincia") String nombreProvincia) {
 		return cantonSvc.getCantonesByNombreProvincia(nombreProvincia);
 	}
 

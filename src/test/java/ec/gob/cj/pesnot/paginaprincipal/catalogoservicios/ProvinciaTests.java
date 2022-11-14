@@ -104,7 +104,7 @@ public class ProvinciaTests {
 		Provincia proviniciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		repo.save(proviniciaGuardado);
-		control.obtenerProvinciaLike(proviniciaGuardado.getNombreProvincia());
+		control.obtenerProvinciaLikeNombre(proviniciaGuardado.getNombreProvincia());
 		service.getProvinciasLike(proviniciaGuardado.getNombreProvincia());
 		listaPaises=repo.getProvinciasLikeNombre(proviniciaGuardado.getNombreProvincia());
 		assertNotNull(listaPaises);
@@ -122,7 +122,7 @@ public class ProvinciaTests {
 
 		assertNotNull(listaPaises);
 		service.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
-		control.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
+		control.obtenerNombreProvinciaPorCodigo(provinciaGuardadoR.getCodigoProvincia());
 
 	}
 	
@@ -138,7 +138,7 @@ public class ProvinciaTests {
 
 		assertNotNull(listaPaises);
 		service.getProvinciasByIdPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
-		control.getProvinciasByIdPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
+		control.obtenerProvinciasPorIdPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
 
 	}
 	@Test
@@ -153,7 +153,7 @@ public class ProvinciaTests {
 
 		assertNotNull(listaPaises);
 		service.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
-		control.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
+		control.obtenerProvinciasPorCodigoPais(paisGuardado.getCodigoPais());
 
 	}
 	@Test
@@ -168,7 +168,7 @@ public class ProvinciaTests {
 
 		assertNotNull(listaPaises);
 		service.getProvinciasByNombrePais(paisGuardado.getNacionalidad());
-		control.getProvinciasByNombrePais(paisGuardado.getNacionalidad());
+		control.obtenerProvinciasPorNombrePais(paisGuardado.getNacionalidad());
 	}
 
 

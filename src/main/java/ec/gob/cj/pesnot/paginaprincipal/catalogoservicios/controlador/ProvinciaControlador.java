@@ -15,17 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ProvinciaService;
 
-
 @RequestMapping("/Provincia")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ProvinciaControlador {
 	@Autowired
 	ProvinciaService provinciaSvc;
+
 	@GetMapping("/provincias")
 	public List<Provincia> listarProvincia() {
 		return provinciaSvc.listarProvincias();
 	}
+
 	@GetMapping("/provinciasActivos")
 	public List<Provincia> listarProvinciasActivos() {
 		List<Provincia> result = null;
@@ -43,27 +44,30 @@ public class ProvinciaControlador {
 	public Optional<Provincia> obtenerProvinciaPorId(@PathVariable("id") Long id) {
 		return provinciaSvc.provinciaById(id);
 	}
+
 	@GetMapping("/provincias/like/{likeNombre}")
-	public List<Provincia> obtenerProvinciaLike(@PathVariable("likeNombre") String nombre) {
+	public List<Provincia> obtenerProvinciaLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return provinciaSvc.getProvinciasLike(nombre);
 	}
+
 	@GetMapping("/provincias/Pais/{idPais}")
-	public List<Provincia> getProvinciasByIdPais(@PathVariable ("idPais") String id) {
+	public List<Provincia> obtenerProvinciasPorIdPais(@PathVariable("idPais") String id) {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}
+
 	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
-	 public List<Provincia> getNombreProvinciaByCodigo(@PathVariable("codigoProvincia") Long codigo) {
-		 return provinciaSvc.getNombreProvinciaByCodigo(codigo);
-	 }
+	public List<Provincia> obtenerNombreProvinciaPorCodigo(@PathVariable("codigoProvincia") Long codigo) {
+		return provinciaSvc.getNombreProvinciaByCodigo(codigo);
+	}
+
 	@GetMapping("/provincias/codigoPais/{codigoPais}")
-	public List<Provincia> getProvinciasByCodigoPais(@PathVariable ("codigoPais") Long codigoPais) {
+	public List<Provincia> obtenerProvinciasPorCodigoPais(@PathVariable("codigoPais") Long codigoPais) {
 		return provinciaSvc.getProvinciasByCodigoPais(codigoPais);
 	}
+
 	@GetMapping("/provincias/nombrePais/{nombrePais}")
-	public List<Provincia> getProvinciasByNombrePais(@PathVariable ("nombrePais") String nombrePais) {
+	public List<Provincia> obtenerProvinciasPorNombrePais(@PathVariable("nombrePais") String nombrePais) {
 		return provinciaSvc.getProvinciasByNombrePais(nombrePais);
 	}
-
-
 
 }

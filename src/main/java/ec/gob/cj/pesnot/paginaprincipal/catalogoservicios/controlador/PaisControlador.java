@@ -48,7 +48,7 @@ public class PaisControlador {
 		return paisSvc.getPaisesLikeNombre(nombre);
 	}
 	@GetMapping("/paises/buscarByCodigo/{codigoPais}")
-	 public Pais getNombreProvinciaByCodigo(@PathVariable("codigoPais") Long codigo) {
+	 public Pais obtenerNombreProvinciaPorCodigo(@PathVariable("codigoPais") Long codigo) {
 		 return paisSvc.getNombrePaisByCodigo(codigo);
 	 }
 
