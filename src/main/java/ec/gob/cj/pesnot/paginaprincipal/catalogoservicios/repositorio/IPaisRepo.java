@@ -17,8 +17,9 @@ public interface IPaisRepo  extends JpaRepository<Pais,Long> {
 	
 	@Query(nativeQuery = true,value="SELECT * FROM catalogoPais where ESTADONACIONALIDAD='true'")
 	List<Pais> getPaisesActivos();
+	//TODO no se implementa aún este query, para que solo devuelva el nombre 
 	@Query(nativeQuery = true,value="SELECT top 1 * from catalogoPais where CODIGOPAIS = :codigoPais")
-	Pais getNombrePaisByCodigo(@Param("codigoPais") Long codigoPais);
+	<Optional>Pais getNombrePaisByCodigo(@Param("codigoPais") Long codigoPais);
 	
 	
 
