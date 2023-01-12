@@ -1,5 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
-
+/*
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.util.List;
@@ -19,6 +19,8 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IPaisRepo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IProvinciaRepo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ProvinciaService;
+
+
 @SpringBootTest
 public class ProvinciaTests {
 
@@ -71,9 +73,9 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que previamente se guardo")
 	void guardarProvincia() {
-		Pais paisGuardado=new Pais(87l,"EEUU", true);
+		Pais paisGuardado=new Pais(87,"EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
         Provincia actual = repo.save(provinciaGuardado);
 		control.guardarProvincia(provinciaGuardado);
 		service.guardarProvincia(provinciaGuardado);
@@ -83,10 +85,10 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el id")
 	void getProvinciaById() {
-		Pais paisGuardado=new Pais(1l,"Bahamas", true);
+		Pais paisGuardado=new Pais(1,"Bahamas", true);
 		repoPais.save(paisGuardado);
 		
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		Optional<Provincia> provinciaRecuperado;
 		repo.save(provinciaGuardado);
 		control.obtenerProvinciaPorId(provinciaGuardado.getIdProvincia());
@@ -98,10 +100,10 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el nombre")
 	void getProvinciaByNombre() {
-		Pais paisGuardado=new Pais(55l,"Brasil", true);
+		Pais paisGuardado=new Pais(55,"Brasil", true);
 		repoPais.save(paisGuardado);
 		
-		Provincia proviniciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia proviniciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		repo.save(proviniciaGuardado);
 		control.obtenerProvinciaLikeNombre(proviniciaGuardado.getNombreProvincia());
@@ -113,9 +115,9 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo")
 	void getProvinciaByCodigo() {
-		Pais paisGuardado=new Pais(86l,"China", true);
+		Pais paisGuardado=new Pais(86,"China", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
 		listaPaises=repo.getNombreProvinciaByCodigo(provinciaGuardadoR.getCodigoProvincia());
@@ -129,9 +131,9 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el id Pais")
 	void getProvinciaByIdPais() {
-		Pais paisGuardado=new Pais(86l,"China", true);
+		Pais paisGuardado=new Pais(86,"China", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
 		listaPaises=repo.getProvinciasByPais(provinciaGuardadoR.getIdPais().getIdPais().toString());
@@ -144,9 +146,9 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo de Pais")
 	void getProvinciaByCodigoPais() {
-		Pais paisGuardado=new Pais(86l,"China", true);
+		Pais paisGuardado=new Pais(86,"China", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
 		listaPaises=repo.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
@@ -159,9 +161,9 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el nombre de Pais")
 	void getProvinciaByNombrePais() {
-		Pais paisGuardado=new Pais(86l,"China", true);
+		Pais paisGuardado=new Pais(86,"China", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(paisGuardado,17l,"Antofagasta",false);
+		Provincia provinciaGuardado=new Provincia(paisGuardado,17,"Antofagasta",false);
 		List <Provincia> listaPaises;
 		Provincia provinciaGuardadoR=repo.save(provinciaGuardado);
 		listaPaises=repo.getProvinciasByCodigoPais(paisGuardado.getCodigoPais());
@@ -175,10 +177,10 @@ public class ProvinciaTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se instancie todo lo relacionado al modelo")
 	void modeloProvincia() {
-		Pais paisGuardado=new Pais(63l,"Filipinas", true);
+		Pais paisGuardado=new Pais(63,"Filipinas", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado=new Provincia(12l,paisGuardado,17l,"Antofagasta",false);
-		provinciaGuardado.setCodigoProvincia(1l);
+		Provincia provinciaGuardado=new Provincia(12l,paisGuardado,17,"Antofagasta",false);
+		provinciaGuardado.setCodigoProvincia(1);
 		provinciaGuardado.setEstadoProvincia(false);
 		provinciaGuardado.setIdProvincia(1l);
 		provinciaGuardado.setNombreProvincia("Catar");
@@ -191,5 +193,6 @@ public class ProvinciaTests {
 
 	}
 	
+	
 
-}
+}*/

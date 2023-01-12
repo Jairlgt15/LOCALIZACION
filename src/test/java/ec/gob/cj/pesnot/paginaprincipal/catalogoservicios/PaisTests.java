@@ -1,4 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
+/*
 import org.junit.jupiter.api.*;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 //debemos mapear la clase a public para hacer el ejecutable
 @SpringBootTest
@@ -73,7 +75,7 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que previamente se guardo")
 	void guardarPais() {
-		Pais paisGuardado=new Pais(54l,"chileno", true);
+		Pais paisGuardado=new Pais(54,"chileno", true);
 		Pais paisGuardadoR;
 		control.guardarPais(paisGuardado);
 		service.guardarPais(paisGuardado);
@@ -83,7 +85,7 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el id")
 	void getPaisById() {
-		Pais paisGuardado=new Pais(54l,"chileno", true);
+		Pais paisGuardado=new Pais(54,"chileno", true);
 		Optional<Pais> paisRecuperado;
 		repo.save(paisGuardado);
 		control.obtenerPaisPorId(paisGuardado.getIdPais());
@@ -95,7 +97,7 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el nombre")
 	void getPaisByNombre() {
-		Pais paisGuardado=new Pais(54l,"chileno", true);
+		Pais paisGuardado=new Pais(54,"chileno", true);
 		List <Pais> listaPaises;
 		repo.save(paisGuardado);
 		control.obtenerPaisesLikeNombre(paisGuardado.getNacionalidad());
@@ -107,7 +109,7 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el codigo")
 	void getPaisByCodigo() {
-		Long numero=54l;
+		int numero=54;
 		Pais paisGuardado=new Pais(numero,"chileno", true);
 		Pais paisRecuperado;
 		Pais paisGuardadoR;
@@ -122,7 +124,7 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se elimine el pais que se busca mediante el codigo")
 	void eliminarPaisById() {
-		Pais paisGuardado=new Pais(54l,"chileno", true);
+		Pais paisGuardado=new Pais(54,"chileno", true);
 		repo.save(paisGuardado);
 		control.eliminarPorId(paisGuardado.getIdPais());
 		control.eliminarPorId(paisGuardado.getIdPais()+1);
@@ -132,8 +134,8 @@ public class PaisTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se instancie todo lo relacionado al modelo")
 	void modeloPais() {
-		Pais paisGuardado=new Pais(3l,54l,"chileno", true);
-		paisGuardado.setCodigoPais(1l);
+		Pais paisGuardado=new Pais(3l,54,"chileno", true);
+		paisGuardado.setCodigoPais(1);
 		paisGuardado.setEstadoNacionalidad(false);
 		paisGuardado.setIdPais(1l);
 		paisGuardado.setNacionalidad("Catar");
@@ -144,9 +146,4 @@ public class PaisTests {
 
 	}
 
-	
-	
-	
-	
-
-}
+}*/

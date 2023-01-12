@@ -18,24 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Provincia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDPROVINCIA")
+    @Column(name = "idProvincia")
 	private Long idProvincia;
 	@ManyToOne(targetEntity = Pais.class, fetch = FetchType.EAGER)
-	@JoinColumn(name = "IDPAIS",nullable=false)
+	@JoinColumn(name = "idPais",nullable=false)
 	@JsonProperty(access = Access.READ_WRITE)
 	private Pais idPais;
-    @Column(name = "CODIGOPROVINCIA")
-	private Long codigoProvincia;
-	@Column(name = "NOMBREPROVINCIA")
+    @Column(name = "codigoProvincia")
+	private int codigoProvincia;
+	@Column(name = "nombreProvincia")
 	private String nombreProvincia;
-	@Column(name = "ESTADOPROVINCIA")
+	@Column(name = "estadoProvincia")
 	private boolean estadoProvincia;
 	
 	public Provincia() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Provincia(Long idProvincia, Pais idPais, Long codigoProvincia, String nombreProvincia,
+	public Provincia(Long idProvincia, Pais idPais, int codigoProvincia, String nombreProvincia,
 			boolean estadoProvincia) {
 		super();
 		this.idProvincia = idProvincia;
@@ -44,7 +44,7 @@ public class Provincia {
 		this.nombreProvincia = nombreProvincia;
 		this.estadoProvincia = estadoProvincia;
 	}
-	public Provincia(Pais idPais, Long codigoProvincia, String nombreProvincia, boolean estadoProvincia) {
+	public Provincia(Pais idPais, int codigoProvincia, String nombreProvincia, boolean estadoProvincia) {
 		super();
 		this.idPais = idPais;
 		this.codigoProvincia = codigoProvincia;
@@ -63,10 +63,10 @@ public class Provincia {
 	public void setIdPais(Pais idPais) {
 		this.idPais = idPais;
 	}
-	public Long getCodigoProvincia() {
+	public int getCodigoProvincia() {
 		return codigoProvincia;
 	}
-	public void setCodigoProvincia(Long codigoProvincia) {
+	public void setCodigoProvincia(int codigoProvincia) {
 		this.codigoProvincia = codigoProvincia;
 	}
 	public String getNombreProvincia() {

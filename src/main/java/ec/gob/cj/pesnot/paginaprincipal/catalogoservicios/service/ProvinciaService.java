@@ -54,11 +54,11 @@ public class ProvinciaService {
 
 	}
 
-	public List<Provincia> getNombreProvinciaByCodigo(Long codigoProvincia) {
+	public List<Provincia> getNombreProvinciaByCodigo(int codigoProvincia) {
 		return repoProvincia.getNombreProvinciaByCodigo(codigoProvincia);
 	}
 
-	public List<Provincia> getProvinciasByCodigoPais(Long codigoPais) {
+	public List<Provincia> getProvinciasByCodigoPais(int codigoPais) {
 		return repoProvincia.getProvinciasByCodigoPais(codigoPais);
 	}
 

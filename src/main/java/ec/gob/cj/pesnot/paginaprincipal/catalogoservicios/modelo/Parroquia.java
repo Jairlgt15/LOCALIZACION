@@ -18,15 +18,15 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Parroquia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="IDPARROQUIA")
+	@Column(name="idParroquia")
 	private Long idParroquia;
 	@ManyToOne(targetEntity = Canton.class, fetch = FetchType.EAGER)
-	@JoinColumn(name = "IDCANTON",nullable=false)
+	@JoinColumn(name = "idCanton",nullable=false)
 	@JsonProperty(access = Access.READ_WRITE)
 	private Canton idCanton;
-	@Column(name = "NOMBREPARROQUIA")
+	@Column(name = "nombreParroquia")
 	private String nombreParroquia;
-	@Column(name = "ESTADOPARROQUIA")
+	@Column(name = "estadoParroquia")
 	private boolean estadoParroquia;
 	
 	

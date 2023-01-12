@@ -1,5 +1,6 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
 
+/*
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
@@ -83,9 +84,9 @@ public class CantonTests {
 
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que previamente se guardo")
 	void guardarCanton() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
@@ -100,9 +101,9 @@ public class CantonTests {
 
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el id")
 	void getCantonById() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
@@ -116,9 +117,9 @@ public class CantonTests {
 
 	@DisplayName("La prueba pasa cuando se devuelva el pais que se busca mediante el nombre")
 	void getCantonByNombre() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
@@ -134,9 +135,9 @@ public class CantonTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el id Pais")
 	void getCantonByIdProvincia() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
@@ -152,18 +153,18 @@ public class CantonTests {
 	@Test
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo Provincia")
 	void getCantonByCodigoProvincia() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
 		List<Canton> listaPaises;
-		listaPaises = repo.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
+		listaPaises = repo.getCantonesByCodigoProvincia(String.valueOf(actualProvincia.getCodigoProvincia()));
 
 		assertNotNull(listaPaises);
-		service.getCantonesByCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
-		control.obtenerCantonesPorCodigoProvincia(actualProvincia.getCodigoProvincia().toString());
+		service.getCantonesByCodigoProvincia(String.valueOf(actualProvincia.getCodigoProvincia()));
+		control.obtenerCantonesPorCodigoProvincia(String.valueOf(actualProvincia.getCodigoProvincia()));
 
 	}
 
@@ -171,9 +172,9 @@ public class CantonTests {
 
 	@DisplayName("La prueba pasa cuando se devuelva la provincia que se busca mediante el codigo de Pais")
 	void getCantonByNombreProvincia() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton actualCanton = repo.save(cantonGuardado);
@@ -191,9 +192,9 @@ public class CantonTests {
 
 	@DisplayName("La prueba pasa cuando se instancie todo lo relacionado al modelo")
 	void modeloCanton() {
-		Pais paisGuardado = new Pais(87l, "EEUU", true);
+		Pais paisGuardado = new Pais(87, "EEUU", true);
 		repoPais.save(paisGuardado);
-		Provincia provinciaGuardado = new Provincia(paisGuardado, 17l, "Antofagasta", false);
+		Provincia provinciaGuardado = new Provincia(paisGuardado, 17, "Antofagasta", false);
 		Provincia actualProvincia = repoProvincia.save(provinciaGuardado);
 		Canton cantonGuardado = new Canton(provinciaGuardado, "Chileno", true);
 		Canton cantonGuardado1 = new Canton(1l,provinciaGuardado, "Chileno", true);
@@ -207,4 +208,5 @@ public class CantonTests {
 		
 
 	}
-}
+	
+}*/

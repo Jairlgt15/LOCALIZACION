@@ -11,7 +11,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
 @Repository
 public interface IParroquiaRepo  extends JpaRepository<Parroquia,Long> {
 	//aqui van los querys
-	@Query(nativeQuery =true,value = "SELECT * FROM catalogoParroquia p where p.IDCANTON = :idCanton and p.ESTADOPARROQUIA=1;")
+	@Query(nativeQuery =true,value = "SELECT * FROM catalogoParroquia p where p.idCanton = :idCanton and p.estadoParroquia=1;")
 	List<Parroquia> getParroquiasByIdCanton(@Param("idCanton") String idCanton);
 	
 	@Query(nativeQuery = true,value="SELECT * FROM catalogoParroquia p WHERE p.NOMBREPARROQUIA LIKE :nombre%")
@@ -20,6 +20,6 @@ public interface IParroquiaRepo  extends JpaRepository<Parroquia,Long> {
 	@Query(nativeQuery = true,value="SELECT * FROM catalogoParroquia where ESTADOPARROQUIA='true'")
 	List<Parroquia> getParroquiasActivos();
 	@Query(nativeQuery = true,value=
-			"SELECT p.IDPARROQUIA, p.ESTADOPARROQUIA, p.NOMBREPARROQUIA, p.IDCANTON FROM catalogoParroquia p join catalogoCanton c on c.IDCANTON=p.IDCANTON where c.NOMBRECANTON=:nombreCanton")
+			"SELECT p.idParroquia, p.estadoParroquia, p.nombreParroquia, p.idCanton FROM catalogoParroquia p join catalogoCanton c on c.idCanton=p.idCanton where c.nombreCanton=:nombreCanton")
 	List<Parroquia> getParroquiasByNombreCanton(@Param("nombreCanton") String nombreCanton);
 }

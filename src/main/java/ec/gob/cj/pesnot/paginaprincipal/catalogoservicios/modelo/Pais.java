@@ -12,27 +12,27 @@ import javax.persistence.Table;
 public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDPAIS")
+    @Column(name = "idPais")
 	private Long idPais;
-    @Column(name = "CODIGOPAIS")
-	private Long codigoPais;
-	@Column(name = "NACIONALIDAD")
+    @Column(name = "codigoPais")
+	private int codigoPais;
+	@Column(name = "nombrePais")
 	private String nacionalidad;
-	@Column(name = "ESTADONACIONALIDAD")
+	@Column(name = "estadoPais")
 	private boolean estadoNacionalidad;
 
 	public Pais() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Pais(Long idPais, Long codigoPais, String nacionalidad, boolean estadoNacionalidad) {
+	public Pais(Long idPais, int codigoPais, String nacionalidad, boolean estadoNacionalidad) {
 		super();
 		this.idPais = idPais;
 		this.codigoPais = codigoPais;
 		this.nacionalidad = nacionalidad;
 		this.estadoNacionalidad = estadoNacionalidad;
 	}
-	public Pais(Long codigoPais, String nacionalidad, boolean estadoNacionalidad) {
+	public Pais(int codigoPais, String nacionalidad, boolean estadoNacionalidad) {
 		super();
 		this.codigoPais = codigoPais;
 		this.nacionalidad = nacionalidad;
@@ -44,10 +44,10 @@ public class Pais {
 	public void setIdPais(Long idPais) {
 		this.idPais = idPais;
 	}
-	public Long getCodigoPais() {
+	public int getCodigoPais() {
 		return codigoPais;
 	}
-	public void setCodigoPais(Long codigoPais) {
+	public void setCodigoPais(int codigoPais) {
 		this.codigoPais = codigoPais;
 	}
 	public String getNacionalidad() {

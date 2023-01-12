@@ -11,22 +11,22 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 @Repository
 public interface IProvinciaRepo  extends JpaRepository<Provincia,Long> {
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM catalogoProvincia p where p.IDPAIS = :idPais and p.ESTADOPROVINCIA=1;")
+	@Query(nativeQuery =true,value = "SELECT * FROM catalogoProvincia p where p.idPais = :idPais and p.estadoProvincia=1;")
 	List<Provincia> getProvinciasByPais(@Param("idPais") String idPais);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia p WHERE p.NOMBREPROVINCIA LIKE :nombre%")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia p WHERE p.nombreProvincia LIKE :nombre%")
 	List<Provincia> getProvinciasLikeNombre(@Param("nombre") String nombre);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia where ESTADOPROVINCIA='true'")
+	@Query(nativeQuery = true,value="SELECT * FROM catalogoProvincia where estadoProvincia='true'")
 	List<Provincia> getProvinciasActivos();
-	@Query(nativeQuery = true,value="SELECT * from catalogoProvincia where CODIGOPROVINCIA = :codigoProvincia")
-	List <Provincia> getNombreProvinciaByCodigo(@Param("codigoProvincia") Long codigoProvincia);
+	@Query(nativeQuery = true,value="SELECT * from catalogoProvincia where codigoProvincia = :codigoProvincia")
+	List <Provincia> getNombreProvinciaByCodigo(@Param("codigoProvincia") int codigoProvincia);
 	
 	@Query(nativeQuery = true,value=
-			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM catalogoPais p join catalogoProvincia v on v.IDPAIS=p.IDPAIS where p.CODIGOPAIS=:codigoPais")
-	List<Provincia> getProvinciasByCodigoPais(@Param("codigoPais") Long codigoPais);
+			"SELECT v.idProvincia, v.codigoProvincia,v.estadoProvincia,v.nombreProvincia,v.idPais FROM catalogoPais p join catalogoProvincia v on v.idPais=p.idPais where p.codigoPais=:codigoPais")
+	List<Provincia> getProvinciasByCodigoPais(@Param("codigoPais") int codigoPais);
 	@Query(nativeQuery = true,value=
-			"SELECT v.IDPROVINCIA, v.CODIGOPROVINCIA,v.ESTADOPROVINCIA,v.NOMBREPROVINCIA,v.IDPAIS FROM catalogoPais p join catalogoProvincia v on v.IDPAIS=p.IDPAIS where p.NACIONALIDAD=:nombrePais")
+			"SELECT v.IDPROVINCIA, v.codigoProvincia,v.estadoProvincia,v.nombreProvincia,v.idPais FROM catalogoPais p join catalogoProvincia v on v.idPais=p.idPais where p.nombrePais=:nombrePais")
 	List<Provincia> getProvinciasByNombrePais(@Param("nombrePais") String nombrePais);
 
 }

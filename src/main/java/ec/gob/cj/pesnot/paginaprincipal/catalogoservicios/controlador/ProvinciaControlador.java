@@ -56,12 +56,12 @@ public class ProvinciaControlador {
 	}
 
 	@GetMapping("/provincias/buscarByCodigo/{codigoProvincia}")
-	public List<Provincia> obtenerNombreProvinciaPorCodigo(@PathVariable("codigoProvincia") Long codigo) {
+	public List<Provincia> obtenerNombreProvinciaPorCodigo(@PathVariable("codigoProvincia") int codigo) {
 		return provinciaSvc.getNombreProvinciaByCodigo(codigo);
 	}
 
 	@GetMapping("/provincias/codigoPais/{codigoPais}")
-	public List<Provincia> obtenerProvinciasPorCodigoPais(@PathVariable("codigoPais") Long codigoPais) {
+	public List<Provincia> obtenerProvinciasPorCodigoPais(@PathVariable("codigoPais") int codigoPais) {
 		return provinciaSvc.getProvinciasByCodigoPais(codigoPais);
 	}
 
