@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IProvinciaRepo;
-import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
+
 public class ProvinciaService {
 	@Autowired
 	IProvinciaRepo repoProvincia;

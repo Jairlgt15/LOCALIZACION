@@ -1,5 +1,4 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service;
-import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IPaisRepo;
 
 
 @Service
-@AllArgsConstructor
+
 public class PaisService {
 	@Autowired
 	IPaisRepo repoPais;

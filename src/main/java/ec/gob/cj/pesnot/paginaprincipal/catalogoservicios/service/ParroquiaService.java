@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParroquiaRepo;
-import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
+
 public class ParroquiaService {
 	@Autowired
 	IParroquiaRepo repoParroquia;

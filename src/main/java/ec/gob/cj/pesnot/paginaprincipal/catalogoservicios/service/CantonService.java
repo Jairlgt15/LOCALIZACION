@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICantonRepo;
-import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
+
 public class CantonService {
 	@Autowired
 	ICantonRepo repoCanton;
