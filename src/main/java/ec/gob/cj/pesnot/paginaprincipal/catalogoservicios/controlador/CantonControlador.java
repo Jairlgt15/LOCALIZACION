@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Canton;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CantonService;
-@RequestMapping("/Canton")
+@RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class CantonControlador {
@@ -23,14 +23,14 @@ public class CantonControlador {
 	public List<Canton> listarCantones() {
 		return cantonSvc.listarCanton();
 	}
-	@GetMapping("/cantonesActivos")
+	@GetMapping("/cantones/activos")
 	public List<Canton> listarCantonesActivos() {
 		List<Canton> result = null;
 		result = cantonSvc.listarCantonesActivos();
 		return result;
 	}
 
-	@PostMapping("/save")
+	@PostMapping("/cantones")
 	public Canton guardarCanton(@RequestBody Canton objCanton) {
 
 		return cantonSvc.guardarCanton(objCanton);
@@ -40,11 +40,11 @@ public class CantonControlador {
 	public Optional<Canton> obtenerCantonPorId(@PathVariable("id") Long id) {
 		return cantonSvc.cantonById(id);
 	}
-	@GetMapping("/cantones/like/{likeNombre}")
+	@GetMapping("/cantones/nombre/{likeNombre}")
 	public List<Canton> obtenerCantonesLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return cantonSvc.getCantonesLike(nombre);
 	}
-	@GetMapping("/cantones/Provincia/{idProvincia}")
+	@GetMapping("/cantones/provincia/{idProvincia}")
 	public List<Canton> obtenerCantonesPorIdProvincia(@PathVariable ("idProvincia") String id) {
 		return cantonSvc.getCantonesByIdProvincia(id);
 	}

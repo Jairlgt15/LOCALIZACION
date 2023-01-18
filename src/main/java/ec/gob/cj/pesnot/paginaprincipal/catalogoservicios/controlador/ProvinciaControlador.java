@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Provincia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ProvinciaService;
 
-@RequestMapping("/Provincia")
+@RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ProvinciaControlador {
@@ -26,14 +26,14 @@ public class ProvinciaControlador {
 		return provinciaSvc.listarProvincias();
 	}
 
-	@GetMapping("/provinciasActivos")
+	@GetMapping("/provincias/activos")
 	public List<Provincia> listarProvinciasActivos() {
 		List<Provincia> result = null;
 		result = provinciaSvc.listarProvinciasActivos();
 		return result;
 	}
 
-	@PostMapping("/save")
+	@PostMapping("/provincias")
 	public Provincia guardarProvincia(@RequestBody Provincia objProvincia) {
 
 		return provinciaSvc.guardarProvincia(objProvincia);
@@ -44,12 +44,12 @@ public class ProvinciaControlador {
 		return provinciaSvc.provinciaById(id);
 	}
 
-	@GetMapping("/provincias/like/{likeNombre}")
+	@GetMapping("/provincias/nombre/{likeNombre}")
 	public List<Provincia> obtenerProvinciaLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return provinciaSvc.getProvinciasLike(nombre);
 	}
 
-	@GetMapping("/provincias/Pais/{idPais}")
+	@GetMapping("/provincias/pais/{idPais}")
 	public List<Provincia> obtenerProvinciasPorIdPais(@PathVariable("idPais") String id) {
 		return provinciaSvc.getProvinciasByIdPais(id);
 	}

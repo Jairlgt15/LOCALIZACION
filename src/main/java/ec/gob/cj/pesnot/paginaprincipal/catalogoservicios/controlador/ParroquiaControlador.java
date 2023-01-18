@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parroquia;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParroquiaService;
 
-@RequestMapping("/Parroquia")
+@RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ParroquiaControlador {
@@ -25,14 +25,14 @@ public class ParroquiaControlador {
 	public List<Parroquia> listarParroquia() {
 		return parroquiaSvc.listarParroquia();
 	}
-	@GetMapping("/parroquiasActivos")
+	@GetMapping("/parroquias/activos")
 	public List<Parroquia> listarParroquiasActivos() {
 		List<Parroquia> result = null;
 		result = parroquiaSvc.listarParroquiasActivos();
 		return result;
 	}
 
-	@PostMapping("/save")
+	@PostMapping("/parroquias")
 	public Parroquia guardarParroquia(@RequestBody Parroquia objCanton) {
 
 		return parroquiaSvc.guardarParroquia(objCanton);
@@ -42,11 +42,11 @@ public class ParroquiaControlador {
 	public Optional<Parroquia> obtenerParroquiaPorId(@PathVariable("id") Long id) {
 		return parroquiaSvc.parroquiaById(id);
 	}
-	@GetMapping("/parroquias/like/{likeNombre}")
+	@GetMapping("/parroquias/nombre/{likeNombre}")
 	public List<Parroquia> obtenerParroquiasLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return parroquiaSvc.getParroquiasLike(nombre);
 	}
-	@GetMapping("/parroquias/Canton/{idCanton}")
+	@GetMapping("/parroquias/canton/{idCanton}")
 	public List<Parroquia> obtenerParroquiasPorIdCanton(@PathVariable ("idCanton") String id) {
 		return parroquiaSvc.getParroquiasByIdCanton(id);
 	}

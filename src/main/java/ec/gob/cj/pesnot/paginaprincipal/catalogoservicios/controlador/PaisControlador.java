@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Pais;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.PaisService;
 
-@RequestMapping("/Pais")
+@RequestMapping("/")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 
@@ -26,14 +26,14 @@ public class PaisControlador {
 	public List<Pais> listarPaises() {
 		return paisSvc.listarPaises();
 	}
-	@GetMapping("/paisesActivos")
+	@GetMapping("/paises/activos")
 	public List<Pais> listarPaisesActivos() {
 		List<Pais> result = null;
 		result = paisSvc.listarPaisesActivos();
 		return result;
 	}
 
-	@PostMapping("/save")
+	@PostMapping("/paises")
 	public Pais guardarPais(@RequestBody Pais objPais) {
 
 		return paisSvc.guardarPais(objPais);
@@ -43,17 +43,17 @@ public class PaisControlador {
 	public Optional<Pais> obtenerPaisPorId(@PathVariable("id") Long id) {
 		return paisSvc.paisById(id);
 	}
-	@GetMapping("/paises/like/{likeNombre}")
+	@GetMapping("/paises/nombre/{likeNombre}")
 	public List<Pais> obtenerPaisesLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return paisSvc.getPaisesLikeNombre(nombre);
 	}
-	@GetMapping("/paises/buscarByCodigo/{codigoPais}")
+	@GetMapping("/paises/provincias/{codigoPais}")
 	 public Pais obtenerNombreProvinciaPorCodigo(@PathVariable("codigoPais") int i) {
 		 return paisSvc.getNombrePaisByCodigo(i);
 	 }
 
 
-	@DeleteMapping("/paises/eliminar/{id}")
+	@DeleteMapping("/paises/{id}")
 	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = paisSvc.eliminar(id);
 	        if (ok){
